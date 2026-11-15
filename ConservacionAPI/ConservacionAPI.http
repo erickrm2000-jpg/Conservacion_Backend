@@ -1,0 +1,347 @@
+@ConservacionAPI_HostAddress = https://localhost:7285
+### 1. Consultar todas las áreas
+GET {{ConservacionAPI_HostAddress}}/api/areas
+Accept: application/json
+
+### 2. Insertar nueva área de conservación
+POST {{ConservacionAPI_HostAddress}}/api/areas
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombre": "Reserva de Prueba UTC",
+  "ubicacion": "Alajuela, Costa Rica",
+  "extensionHectareas": 150.50,
+  "tipoArea": "Reserva Forestal",
+  "fechaCreacion": "2026-11-11",
+  "estado": "Activa"
+}
+
+### Actualizar área de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/areas/6
+Content-Type: application/json
+
+{
+  "idArea": 6,
+  "nombre": "Reserva de Prueba UTC",
+  "ubicacion": "Palmares, Alajuela, Costa Rica",
+  "extensionHectareas": 200.75,
+  "tipoArea": "Reserva Forestal",
+  "fechaCreacion": "2026-11-11",
+  "estado": "Activa"
+}
+
+### Prueba de eliminación protegida
+DELETE {{ConservacionAPI_HostAddress}}/api/areas/1
+Accept: application/json
+
+### Eliminar área de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/areas/6
+Accept: application/json
+
+### Insertar especie de prueba
+POST {{ConservacionAPI_HostAddress}}/api/especies
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombreCientifico": "Testus academicus",
+  "nombreComun": "Especie de Prueba UTC",
+  "tipo": "Flora",
+  "estadoConservacion": "Preocupación menor",
+  "descripcion": "Registro de prueba para Programación VI."
+}
+
+### Actualizar especie de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/especies/9
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idEspecie": 9,
+  "nombreCientifico": "Testus academicus",
+  "nombreComun": "Especie de Prueba UTC Actualizada",
+  "tipo": "Flora",
+  "estadoConservacion": "Vulnerable",
+  "descripcion": "Registro actualizado mediante PUT para Programación VI."
+}
+
+### Intentar eliminar especie con registros asociados
+DELETE {{ConservacionAPI_HostAddress}}/api/especies/1
+Accept: application/json
+
+### Eliminar especie de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/especies/9
+Accept: application/json
+
+### Insertar personal de prueba
+POST {{ConservacionAPI_HostAddress}}/api/personal
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombre": "Personal de Prueba UTC",
+  "cargo": "Asistente de Conservación",
+  "especialidad": "Gestión Ambiental",
+  "telefono": "8888-9999",
+  "correo": "prueba.personal@example.com"
+}
+
+### Actualizar personal de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/personal/6
+Content-Type: application/json
+
+{
+  "idPersonal": 6,
+  "nombre": "Personal de Prueba UTC Actualizado",
+  "cargo": "Coordinador de Conservación",
+  "especialidad": "Protección Ambiental",
+  "telefono": "8888-7777",
+  "correo": "prueba.personal@example.com"
+}
+
+### Personal con actividades asociadas
+DELETE {{ConservacionAPI_HostAddress}}/api/personal/1
+Accept: application/json
+
+### Eliminar personal de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/personal/6
+Accept: application/json
+
+### Insertar registro de especie
+POST {{ConservacionAPI_HostAddress}}/api/registros-especies
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idArea": 2,
+  "idEspecie": 1,
+  "cantidadEstimada": 12,
+  "fechaRegistro": "2026-11-11"
+}
+
+### Actualizar registro de especie
+PUT {{ConservacionAPI_HostAddress}}/api/registros-especies/10
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idRegistro": 10,
+  "idArea": 2,
+  "idEspecie": 1,
+  "cantidadEstimada": 20,
+  "fechaRegistro": "2026-11-11"
+}
+
+### Eliminar registro de especie de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/registros-especies/10
+Accept: application/json
+
+
+### Insertar actividad de conservación
+POST {{ConservacionAPI_HostAddress}}/api/actividades
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombre": "Actividad de Prueba UTC",
+  "descripcion": "Jornada académica de reforestación.",
+  "fechaInicio": "2026-11-12",
+  "fechaFin": "2026-11-20",
+  "idArea": 1,
+  "idPersonal": 3
+}
+
+### Actualizar actividad de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/actividades/6
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idActividad": 6,
+  "nombre": "Actividad de Prueba UTC Actualizada",
+  "descripcion": "Jornada académica de reforestación actualizada.",
+  "fechaInicio": "2026-11-12",
+  "fechaFin": "2026-11-25",
+  "idArea": 1,
+  "idPersonal": 3
+}
+
+### Eliminar actividad de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/actividades/6
+Accept: application/json
+
+
+### Insertar monitoreo ambiental de prueba
+POST {{ConservacionAPI_HostAddress}}/api/monitoreos
+Content-Type: application/json
+Accept: application/json
+
+{
+  "fecha": "2026-11-12",
+  "tipoMonitoreo": "Calidad del agua",
+  "resultados": "Monitoreo académico de prueba. pH 7.2.",
+  "idArea": 1
+}
+
+### Monitoreo con área inexistente
+POST {{ConservacionAPI_HostAddress}}/api/monitoreos
+Content-Type: application/json
+
+{
+  "fecha": "2026-11-12",
+  "tipoMonitoreo": "Calidad del agua",
+  "resultados": "Prueba de área inexistente.",
+  "idArea": 999
+}
+
+### Actualizar monitoreo ambiental de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/monitoreos/6
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idMonitoreo": 6,
+  "fecha": "2026-11-12",
+  "tipoMonitoreo": "Calidad del agua",
+  "resultados": "Monitoreo académico actualizado. pH 7.5.",
+  "idArea": 1
+}
+
+### PUT con área inexistente
+PUT {{ConservacionAPI_HostAddress}}/api/monitoreos/6
+Content-Type: application/json
+
+{
+  "idMonitoreo": 6,
+  "fecha": "2026-11-12",
+  "tipoMonitoreo": "Calidad del agua",
+  "resultados": "Prueba de área inexistente.",
+  "idArea": 999
+}
+
+### Eliminar monitoreo ambiental de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/monitoreos/6
+Accept: application/json
+
+### Insertar amenaza de prueba
+POST {{ConservacionAPI_HostAddress}}/api/amenazas
+Content-Type: application/json
+Accept: application/json
+
+{
+  "tipo": "Incendio forestal de prueba",
+  "descripcion": "Amenaza ficticia para pruebas de Programación VI.",
+  "nivelRiesgo": "Medio",
+  "fechaReporte": "2026-11-12",
+  "idArea": 1
+}
+
+### Prueba de nivel de riesgo inválido
+POST {{ConservacionAPI_HostAddress}}/api/amenazas
+Content-Type: application/json
+
+{
+  "tipo": "Amenaza con riesgo inválido",
+  "descripcion": "Prueba de validación.",
+  "nivelRiesgo": "Extremo",
+  "fechaReporte": "2026-11-12",
+  "idArea": 1
+}
+
+### Actualizar amenaza de prueba
+PUT {{ConservacionAPI_HostAddress}}/api/amenazas/6
+Content-Type: application/json
+Accept: application/json
+
+{
+  "idAmenaza": 6,
+  "tipo": "Incendio forestal de prueba",
+  "descripcion": "Amenaza académica actualizada mediante PUT.",
+  "nivelRiesgo": "Alto",
+  "fechaReporte": "2026-11-12",
+  "idArea": 1
+}
+
+### PUT con nivel de riesgo incorrecto
+PUT {{ConservacionAPI_HostAddress}}/api/amenazas/6
+Content-Type: application/json
+
+{
+  "idAmenaza": 6,
+  "tipo": "Incendio forestal de prueba",
+  "descripcion": "Prueba de validación.",
+  "nivelRiesgo": "Extremo",
+  "fechaReporte": "2026-11-12",
+  "idArea": 1
+}
+
+### Eliminar amenaza de prueba
+DELETE {{ConservacionAPI_HostAddress}}/api/amenazas/6
+Accept: application/json
+
+
+
+
+### Iniciar sesión
+POST {{ConservacionAPI_HostAddress}}/api/auth/login
+Content-Type: application/json
+Accept: application/json
+{
+  "nombreUsuario": "admin",
+  "contrasena": "COLOCAR_CONTRASENA"
+}
+
+
+### Consultar áreas con JWT
+GET {{ConservacionAPI_HostAddress}}/api/areas
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+### Consultar especies con JWT
+GET {{ConservacionAPI_HostAddress}}/api/especies
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+### Consultar personal con JWT
+GET {{ConservacionAPI_HostAddress}}/api/personal
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+### Consultar amenazas con JWT
+GET {{ConservacionAPI_HostAddress}}/api/amenazas
+Authorization: Bearer {{Token}}
+Accept: application/json
+
+### Login del usuario de consulta
+POST {{ConservacionAPI_HostAddress}}/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{
+  "nombreUsuario": "admin",
+  "contrasena": "COLOCAR_CONTRASENA"
+}
+
+### Consultar especies como usuario consulta01
+GET {{ConservacionAPI_HostAddress}}/api/especies
+Authorization: Bearer {{TokenConsulta}}
+Accept: application/json
+
+
+### Verificar que consulta01 no puede eliminar
+DELETE {{ConservacionAPI_HostAddress}}/api/especies/1
+Authorization: Bearer {{TokenConsulta}}
+Accept: application/json
+
+### Login administrador
+POST {{ConservacionAPI_HostAddress}}/api/auth/login
+Content-Type: application/json
+Accept: application/json
+
+{{
+  "nombreUsuario": "admin",
+  "contrasena": "COLOCAR_CONTRASENA"
+}
+}
+

@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="Conservacion.AccesoDatos/Conservacion.AccesoDatos.csproj" />
+  <Project Path="Conservacion.Entidades/Conservacion.Entidades.csproj" />
+  <Project Path="ConservacionAPI/ConservacionAPI.csproj" />
+  <Project Path="Conservacion_LogicaNegocio/Conservacion_LogicaNegocio.csproj" />
+</Solution>

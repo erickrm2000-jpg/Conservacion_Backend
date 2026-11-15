@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>8fa9c1aa-987d-4728-b53d-8b27b6b42061</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="10.0.15" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.13" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Conservacion.AccesoDatos\Conservacion.AccesoDatos.csproj" />
+    <ProjectReference Include="..\Conservacion.Entidades\Conservacion.Entidades.csproj" />
+    <ProjectReference Include="..\Conservacion_LogicaNegocio\Conservacion_LogicaNegocio.csproj" />
+  </ItemGroup>
+
+</Project>
