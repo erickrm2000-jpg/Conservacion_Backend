@@ -1,0 +1,5 @@
+﻿@model IReadOnlyList<Conservacion_frontend.Models.AreaConservacion>
+@{ ViewData["Title"] = "Ãreas de conservaciÃ³n"; }
+<div class="page-heading"><div><div class="eyebrow">GESTIÃ“N PRINCIPAL</div><h1>Ãreas de conservaciÃ³n</h1><p>Parques, reservas y refugios bajo gestiÃ³n.</p></div><a class="btn btn-primary" asp-controller="Crud" asp-action="Create" asp-route-modulo="Areas">+ Nueva Ã¡rea</a></div>
+<div class="table-card"><table class="table align-middle mb-0"><thead><tr><th>Nombre</th><th>UbicaciÃ³n</th><th>ExtensiÃ³n</th><th>Tipo</th><th>Estado</th></tr></thead><tbody>@foreach (var x in Model) { <tr><td class="fw-semibold">@x.Nombre</td><td>@x.Ubicacion</td><td>@x.ExtensionHectareas.ToString("N2") ha</td><td>@x.TipoArea</td><td><span class="badge-soft green-bg">@x.Estado</span></td></tr> }</tbody></table></div>
+

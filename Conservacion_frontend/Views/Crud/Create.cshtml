@@ -1,0 +1,4 @@
+﻿@model Conservacion_frontend.Controllers.CrudViewModel
+@{ ViewData["Title"] = "Nuevo registro"; }
+<div class="page-heading"><div><div class="eyebrow">GESTIÃ“N</div><h1>Nuevo registro</h1><p>Formulario de demostraciÃ³n para <strong>@Model.Modulo</strong>.</p></div></div><div class="form-card"><form asp-action="Create" method="post"><input asp-for="Modulo" type="hidden" /><div asp-validation-summary="ModelOnly" class="text-danger"></div><label asp-for="Nombre"></label><input asp-for="Nombre" class="form-control" placeholder="Nombre del registro" /><span asp-validation-for="Nombre" class="text-danger"></span><label asp-for="Descripcion" class="mt-3"></label><textarea asp-for="Descripcion" class="form-control" rows="4" placeholder="DescripciÃ³n (opcional)"></textarea><div class="mt-4"><button class="btn btn-primary" type="submit">Guardar demostraciÃ³n</button> <a class="btn btn-light" asp-controller="Catalog" asp-action="@Model.Modulo">Cancelar</a></div></form></div>
+

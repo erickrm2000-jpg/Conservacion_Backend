@@ -3,4 +3,5 @@
   <Project Path="Conservacion.Entidades/Conservacion.Entidades.csproj" />
   <Project Path="ConservacionAPI/ConservacionAPI.csproj" />
   <Project Path="Conservacion_LogicaNegocio/Conservacion_LogicaNegocio.csproj" />
+  <Project Path="../Conservacion_frontend/Conservacion_frontend.csproj" />
 </Solution>

@@ -1,0 +1,4 @@
+﻿@model IReadOnlyList<Conservacion_frontend.Models.ActividadConservacion>
+@{ ViewData["Title"] = "Actividades"; }
+<div class="page-heading"><div><div class="eyebrow">SEGUIMIENTO</div><h1>Actividades de conservaciÃ³n</h1><p>Acciones programadas y responsables asignados.</p></div><a class="btn btn-primary" asp-controller="Crud" asp-action="Create" asp-route-modulo="Actividades">+ Nueva actividad</a></div><div class="table-card"><table class="table align-middle mb-0"><thead><tr><th>Actividad</th><th>Ãrea</th><th>Responsable</th><th>Periodo</th></tr></thead><tbody>@foreach (var x in Model) { <tr><td class="fw-semibold">@x.Nombre</td><td>@x.Area</td><td>@x.Responsable</td><td>@x.FechaInicio.ToString("dd/MM/yyyy") â€” @(x.FechaFin?.ToString("dd/MM/yyyy") ?? "En curso")</td></tr> }</tbody></table></div>
+

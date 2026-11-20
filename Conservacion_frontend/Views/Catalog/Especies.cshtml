@@ -1,0 +1,4 @@
+﻿@model IReadOnlyList<Conservacion_frontend.Models.Especie>
+@{ ViewData["Title"] = "Especies"; }
+<div class="page-heading"><div><div class="eyebrow">INVENTARIO</div><h1>Especies</h1><p>Inventario de flora y fauna protegida.</p></div><a class="btn btn-primary" asp-controller="Crud" asp-action="Create" asp-route-modulo="Especies">+ Nueva especie</a></div><div class="table-card"><table class="table align-middle mb-0"><thead><tr><th>Nombre comÃºn</th><th>Nombre cientÃ­fico</th><th>Tipo</th><th>Estado de conservaciÃ³n</th></tr></thead><tbody>@foreach (var x in Model) { <tr><td class="fw-semibold">@x.NombreComun</td><td><em>@x.NombreCientifico</em></td><td><span class="badge-soft blue-bg">@x.Tipo</span></td><td>@x.EstadoConservacion</td></tr> }</tbody></table></div>
+

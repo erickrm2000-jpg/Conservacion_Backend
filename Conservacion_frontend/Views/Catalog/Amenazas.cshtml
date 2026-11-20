@@ -1,0 +1,4 @@
+﻿@model IReadOnlyList<Conservacion_frontend.Models.Amenaza>
+@{ ViewData["Title"] = "Amenazas y riesgos"; }
+<div class="page-heading"><div><div class="eyebrow">SEGUIMIENTO</div><h1>Amenazas y riesgos</h1><p>Situaciones que requieren atenciÃ³n y seguimiento.</p></div><a class="btn btn-primary" asp-controller="Crud" asp-action="Create" asp-route-modulo="Amenazas">+ Nueva amenaza</a></div><div class="table-card"><table class="table align-middle mb-0"><thead><tr><th>Amenaza</th><th>Ãrea</th><th>Nivel de riesgo</th><th>Fecha</th><th>DescripciÃ³n</th></tr></thead><tbody>@foreach (var x in Model) { var css = x.NivelRiesgo == "CrÃ­tico" ? "red-bg" : x.NivelRiesgo == "Alto" ? "orange-bg" : "yellow-bg"; <tr><td class="fw-semibold">@x.Tipo</td><td>@x.Area</td><td><span class="badge-soft @css">@x.NivelRiesgo</span></td><td>@x.FechaReporte.ToString("dd/MM/yyyy")</td><td>@x.Descripcion</td></tr> }</tbody></table></div>
+
